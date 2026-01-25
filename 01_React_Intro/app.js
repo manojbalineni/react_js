@@ -1,0 +1,97 @@
+const heading = React.createElement(
+  "h1",
+  { id: "sample-h1", dummy: "manoj" },
+  "Hello World from the react",
+);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+
+console.log(heading); // JS Object => React Element
+
+{
+  /*
+  <div id="parent">
+    <div id="child">
+      <h1>This is heading </h1>
+    </div>
+</div>; */
+}
+
+/*
+
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h1", {}, "This is the heading in nested structure"),
+  ),
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+*/
+{
+  /*
+  <div id="parent">
+    <div id="child">
+      <h1>This is heading </h1>
+      <h2> This is Second heading </h2>
+    </div>
+</div>; */
+}
+/*
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement("div", { id: "child" }, [
+    React.createElement("h1", {}, "This is the heading in nested structure"),
+    React.createElement(
+      "h2",
+      {},
+      "This is the second heading in nested structure",
+    ),
+  ]),
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+*/
+{
+  /*
+  <div id="parent">
+    <div id="child1">
+      <h1>This is heading </h1>
+      <h2> This is Second heading </h2>
+    </div>
+     <div id="child2">
+      <h1>This is heading </h1>
+      <h2> This is Second heading </h2>
+    </div>
+</div>; */
+}
+
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child01" }, [
+    React.createElement("h1", {}, "This is the heading in nested structure"),
+    React.createElement(
+      "h2",
+      {},
+      "This is the second heading in nested structure",
+    ),
+  ]),
+  React.createElement("div", { id: "child02" }, [
+    React.createElement("h1", {}, "This is the heading in nested structure"),
+    React.createElement(
+      "h2",
+      {},
+      "This is the second heading in nested structure",
+    ),
+  ]),
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+
+/* The above structure the code is becoming more and more complex. To avoid this we are using JSX */

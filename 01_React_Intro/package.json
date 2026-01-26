@@ -2,6 +2,7 @@
   "name": "01_react_intro",
   "version": "1.0.0",
   "scripts": {
+    "start": "parcel index.html",
     "test": "jest"
   },
   "author": "",

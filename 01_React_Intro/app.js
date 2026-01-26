@@ -1,26 +1,55 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const TitleComponent = () => {
+  return <h1> This is hello from the Title Component</h1>;
+};
+
+/* Component Composition */
+const HeadingComponent = () => {
+  return (
+    <div id="heading">
+      <TitleComponent />
+      <h1>This is hello from the heading component</h1>
+    </div>
+  );
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent />);
+
+/*
+
+const jsxHeading = <h1>Hello from Manoj Babu using JSX Syntax</h1>;
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading);
+
+*/
+
+/*
+
+The below is the old code 
+
+
 const heading = React.createElement(
   "h1",
   { id: "sample-h1", dummy: "manoj" },
   "Hello World from the react",
 );
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
+ const root = ReactDOM.createRoot(document.getElementById("root"));
+ root.render(heading);
 
 console.log(heading); // JS Object => React Element
 
 {
-  /*
+  
   <div id="parent">
     <div id="child">
       <h1>This is heading </h1>
     </div>
-</div>; */
+</div>; 
 }
 
-/*
+
 
 const parent = React.createElement(
   "div",
@@ -34,17 +63,17 @@ const parent = React.createElement(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
-*/
+
 {
-  /*
+  
   <div id="parent">
     <div id="child">
       <h1>This is heading </h1>
       <h2> This is Second heading </h2>
     </div>
-</div>; */
+</div>;
 }
-/*
+
 const parent = React.createElement(
   "div",
   { id: "parent" },
@@ -60,9 +89,9 @@ const parent = React.createElement(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
-*/
+
 {
-  /*
+
   <div id="parent">
     <div id="child1">
       <h1>This is heading </h1>
@@ -72,7 +101,7 @@ root.render(parent);
       <h1>This is heading </h1>
       <h2> This is Second heading </h2>
     </div>
-</div>; */
+</div>; 
 }
 
 const parent = React.createElement("div", { id: "parent" }, [
@@ -97,4 +126,6 @@ const parent = React.createElement("div", { id: "parent" }, [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
 
-/* The above structure the code is becoming more and more complex. To avoid this we are using JSX */
+ The above structure the code is becoming more and more complex. To avoid this we are using JSX 
+
+ */

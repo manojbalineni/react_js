@@ -10,6 +10,8 @@ const HeadingComponent = () => {
   return (
     <div id="heading">
       <TitleComponent />
+      {TitleComponent()}
+      <TitleComponent></TitleComponent>
       <h1>This is hello from the heading component</h1>
     </div>
   );

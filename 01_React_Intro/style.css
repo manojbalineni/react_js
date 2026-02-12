@@ -47,6 +47,30 @@
   margin: 10px;
 }
 
-.filter-btn :hover {
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 100px;
+  height: 200px;
+  margin: 20px;
+  background-color: #f0f0f0;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
   cursor: pointer;
+}
+.filter-btn {
+  display: flex;
+}
+.top-rated-btn {
+  cursor: pointer;
+}
+.search-btn {
+  cursor: pointer;
+  margin: 10px;
 }

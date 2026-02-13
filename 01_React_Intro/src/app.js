@@ -2,21 +2,46 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import BodyCmponent from "./components/BodyComponent";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import ErrorPage from "./components/ErrorPage";
 
 const App = () => {
   return (
     <div className="app">
       <Header />
-      <BodyCmponent />
+      <Outlet />
     </div>
   );
 };
+const appRoute = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <BodyCmponent />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+    errorElement: <ErrorPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<RouterProvider router={appRoute} />);
 
 /*
-
+root.render(<App />);
 const TitleComponent = () => {
   return <h1> This is hello from the Title Component</h1>;
 };

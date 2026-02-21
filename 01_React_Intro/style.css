@@ -86,3 +86,9 @@
   margin: 10px;
   border: 1px solid black;
 }
+
+.profile-details {
+  border: 1px solid black;
+  width: 350px;
+  padding: 10px;
+}

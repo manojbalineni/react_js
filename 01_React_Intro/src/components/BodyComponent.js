@@ -1,9 +1,9 @@
 import RestroCard from "./RestroCard";
-import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import ShimmerComponent from "./ShimmerComponent";
 import { Link } from "react-router-dom";
 import { RESTAURANTS_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const BodyCmponent = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -23,6 +23,12 @@ const BodyCmponent = () => {
     setListOfRestaurant(restautantList);
     setFilteredRestaurant(restautantList);
   };
+  const onlineStatus = useOnlineStatus();
+  console.log(onlineStatus);
+
+  if (!onlineStatus) {
+    return <h1>Your are offline. Please check the internet connection.</h1>;
+  }
 
   if (listOfRestaurant.length === 0) {
     return <ShimmerComponent />;

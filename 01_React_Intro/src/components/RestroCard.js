@@ -5,13 +5,13 @@ const RestroCard = (props) => {
   const { name, avgRating, cuisines } = resData?.info;
   const { deliveryTime } = resData?.info?.sla;
   return (
-    <div className="restro-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="m-4 p-4 w-62.5 rounded-lg bg-gray-100 hover:bg-gray-200">
       <img
-        className="image-logo"
+        className="image-logo rounded-lg"
         src={CDN_URL + resData.info.cloudinaryImageId}
         alt=""
       />
-      <h3>{name}</h3>
+      <h3 className="font-bold py-2 text-lg">{name}</h3>
       <h4>Rating : {avgRating}</h4>
       <h4>{deliveryTime} minutes</h4>
       <h3>{cuisines.join(", ")}</h3>

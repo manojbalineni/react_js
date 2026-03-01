@@ -35,10 +35,11 @@ const BodyCmponent = () => {
   }
   return (
     <div className="body">
-      <div className="filter-btn">
-        <div className="search-input">
+      <div className="filter-btn flex items-center">
+        <div className="search-input m-4 p-4">
           <input
             type="text"
+            className="border border-black"
             name=""
             id=""
             value={searchText}
@@ -47,7 +48,7 @@ const BodyCmponent = () => {
             }}
           />
           <button
-            className="search-btn"
+            className="px-4 py-2 bg-green-300 m-4 rounded-sm cursor-pointer"
             onClick={() => {
               const filteredRestro = listOfRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText),
@@ -58,19 +59,21 @@ const BodyCmponent = () => {
             Search
           </button>
         </div>
-        <button
-          className="top-rated-btn"
-          onClick={() => {
-            const filteredRestaurants = listOfRestaurant.filter(
-              (res) => res.info.avgRating > 4.5,
-            );
-            setFilteredRestaurant(filteredRestaurants);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div>
+          <button
+            className="top-rated-btn px-4 py-2 bg-gray-100 rounded-lg flex items-center cursor-pointer"
+            onClick={() => {
+              const filteredRestaurants = listOfRestaurant.filter(
+                (res) => res.info.avgRating > 4.5,
+              );
+              setFilteredRestaurant(filteredRestaurants);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="restaurant-component">
+      <div className="restaurant-component flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link
             className="link-rest-component"

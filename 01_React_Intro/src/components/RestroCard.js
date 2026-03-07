@@ -19,4 +19,17 @@ const RestroCard = (props) => {
   );
 };
 
+export const withPromotedLabel = (RestroCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black m-2 p-2 text-white rounded-lg">
+          Promoted
+        </label>
+        <RestroCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestroCard;

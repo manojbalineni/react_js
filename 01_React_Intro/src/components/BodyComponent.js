@@ -1,4 +1,4 @@
-import RestroCard from "./RestroCard";
+import RestroCard, { withPromotedLabel } from "./RestroCard";
 import { useState, useEffect } from "react";
 import ShimmerComponent from "./ShimmerComponent";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ const BodyCmponent = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState([]);
+  const RestroPromotedCard = withPromotedLabel(RestroCard);
   useEffect(() => {
     console.log("Use effect Called");
     const data = fetchData();
@@ -80,7 +81,11 @@ const BodyCmponent = () => {
             to={"/restaurant/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-            <RestroCard resData={restaurant} />
+            {restaurant.info.avgRating > 4.3 ? (
+              <RestroPromotedCard resData={restaurant} />
+            ) : (
+              <RestroCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
